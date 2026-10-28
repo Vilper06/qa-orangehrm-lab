@@ -1,0 +1,37 @@
+﻿{
+    "nota":  "No hubo casos en estado Falla en el Ciclo 1 (v1), el Ciclo 2 (v2) ni la regresion posterior a CR-001; por tanto no se registraron defectos DEF-xx.",
+    "defectos":  [
+
+                 ],
+    "total_defectos":  0,
+    "hallazgos_no_defecto":  [
+                                 {
+                                     "clasificacion":  "Hallazgo de seguridad de componente de terceros; el baseline lo reporta como WARN (FAIL=0), por lo que CP-39 cumple su resultado esperado",
+                                     "caso":  "CP-39",
+                                     "titulo":  "ZAP 10003 Vulnerable JS Library (High (Medium)) presente en v1 y v2",
+                                     "id":  "H-01",
+                                     "accion":  "Reportar al fabricante; no corregible por configuracion"
+                                 },
+                                 {
+                                     "clasificacion":  "Bloqueado por condicion externa (politica de Control de aplicaciones de Windows)",
+                                     "caso":  "CP-41",
+                                     "titulo":  "Firefox y WebKit no pueden ejecutarse en el equipo de pruebas",
+                                     "id":  "H-02",
+                                     "accion":  "Solicitar excepcion o ejecutar en otro equipo"
+                                 },
+                                 {
+                                     "clasificacion":  "Discrepancia de redaccion (Pasa con observacion)",
+                                     "caso":  "CP-28",
+                                     "titulo":  "Mensaje real \"Leave Balance Exceeded\" en lugar de \"Balance not sufficient\"",
+                                     "id":  "H-03",
+                                     "accion":  "Ninguna"
+                                 },
+                                 {
+                                     "clasificacion":  "Brecha de cobertura del plan",
+                                     "caso":  "RNF-06",
+                                     "titulo":  "El plan no tiene casos de prueba para Portabilidad",
+                                     "id":  "H-04",
+                                     "accion":  "Agregar caso de despliegue limpio"
+                                 }
+                             ]
+}

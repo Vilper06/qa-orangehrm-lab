@@ -1,0 +1,12 @@
+[
+  {
+    "id": "CP-39",
+    "version": "v2",
+    "estado": "Pasa",
+    "resultado_obtenido": "ZAP baseline pasivo: FAIL=0, WARN=7, PASS=60",
+    "observaciones": "Alertas: 10003 Vulnerable JS Library; 10038 Content Security Policy (CSP) Header Not Set; 10044 Big Redirect Detected (Potential Sensitive Information Leak); 90004 Cross-Origin-Embedder-Policy Header Missing or Invalid; 10109 Modern Web Application; 10049 Non-Storable Content; 10112 Session Management Response Identified; 10049 Storable and Cacheable Content",
+    "duracion_ms": 53434,
+    "evidencia": "reportes/reprueba_cr001/zap_v2.html",
+    "fecha_hora": "2026-10-16T01:03:19.545Z"
+  }
+]

@@ -1,0 +1,33 @@
+# Basado en https://github.com/kiwitcms/Kiwi/blob/master/docker-compose.yml (se omite el proxy "solo para pruebas")
+name: kiwi
+services:
+  db:
+    container_name: kiwi_db
+    image: mariadb:latest
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    volumes: [kiwi_db_data:/var/lib/mysql]
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${KIWI_DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: kiwi
+      MYSQL_USER: kiwi
+      MYSQL_PASSWORD: ${KIWI_DB_PASSWORD}
+  web:
+    container_name: kiwi_web
+    depends_on: [db]
+    restart: unless-stopped
+    image: pub.kiwitcms.eu/kiwitcms/kiwi:latest
+    ports:
+      - "8088:8080"
+      - "8443:8443"
+    volumes: [kiwi_uploads:/Kiwi/uploads:Z]
+    environment:
+      KIWI_DB_HOST: db
+      KIWI_DB_PORT: 3306
+      KIWI_DB_NAME: kiwi
+      KIWI_DB_USER: kiwi
+      KIWI_DB_PASSWORD: ${KIWI_DB_PASSWORD}
+    cap_drop: [ALL]
+volumes:
+  kiwi_db_data:
+  kiwi_uploads:

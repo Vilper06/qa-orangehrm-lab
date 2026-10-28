@@ -1,0 +1,22 @@
+{
+  "Ciclo 1 – v1 OrangeHRM 5.8.1 (línea base)": {
+    "run": 1,
+    "conteo": {
+      "Pasa": 41,
+      "Bloqueado": 1
+    }
+  },
+  "Ciclo 2 – v2 OrangeHRM 5.9 (regresión completa)": {
+    "run": 2,
+    "conteo": {
+      "Pasa": 41,
+      "Bloqueado": 1
+    }
+  },
+  "Reprueba CR-001 y regresión posterior – v2 5.9 con cabeceras (CP-01..CP-36 y CP-39)": {
+    "run": 3,
+    "conteo": {
+      "Pasa": 37
+    }
+  }
+}

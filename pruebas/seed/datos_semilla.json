@@ -1,0 +1,32 @@
+{
+  "anio": 2026,
+  "ubicaciones": [
+    {"name":"CDMX","city":"Ciudad de Mexico","province":"CDMX"},
+    {"name":"Monterrey","city":"Monterrey","province":"Nuevo Leon"},
+    {"name":"Guadalajara","city":"Guadalajara","province":"Jalisco"}
+  ],
+  "departamentos": ["Recursos Humanos","TI","Ventas","Finanzas"],
+  "puestos": ["Gerente de RH","Desarrollador","Analista QA","Ejecutivo de Ventas","Contador"],
+  "estatus": ["Tiempo completo","Medio tiempo"],
+  "empleados": [
+    {"id":"E001","nombre":"Ana","apellido":"Lopez Garcia","dep":"Recursos Humanos","puesto":"Gerente de RH","ubi":"CDMX","estatus":"Tiempo completo","usuario":"ana.lopez","rol":"supervisor"},
+    {"id":"E002","nombre":"Carlos","apellido":"Ramirez Soto","dep":"TI","puesto":"Desarrollador","ubi":"CDMX","estatus":"Tiempo completo","usuario":"carlos.ramirez","rol":"ESS"},
+    {"id":"E003","nombre":"Beatriz","apellido":"Hernandez Cruz","dep":"TI","puesto":"Analista QA","ubi":"Monterrey","estatus":"Tiempo completo","usuario":"beatriz.hernandez","rol":"ESS"},
+    {"id":"E004","nombre":"Diego","apellido":"Martinez Perez","dep":"Ventas","puesto":"Ejecutivo de Ventas","ubi":"Guadalajara","estatus":"Tiempo completo","usuario":"diego.martinez","rol":"ESS"},
+    {"id":"E005","nombre":"Elena","apellido":"Torres Rios","dep":"Finanzas","puesto":"Contador","ubi":"CDMX","estatus":"Medio tiempo"},
+    {"id":"E006","nombre":"Fernando","apellido":"Gomez Vega","dep":"Ventas","puesto":"Ejecutivo de Ventas","ubi":"Monterrey","estatus":"Tiempo completo"},
+    {"id":"E007","nombre":"Gabriela","apellido":"Diaz Luna","dep":"Recursos Humanos","puesto":"Gerente de RH","ubi":"Guadalajara","estatus":"Medio tiempo"},
+    {"id":"E008","nombre":"Hugo","apellido":"Sanchez Mora","dep":"TI","puesto":"Desarrollador","ubi":"Monterrey","estatus":"Tiempo completo"},
+    {"id":"E009","nombre":"Irene","apellido":"Flores Ibarra","dep":"Finanzas","puesto":"Contador","ubi":"Guadalajara","estatus":"Tiempo completo"},
+    {"id":"E010","nombre":"Jorge","apellido":"Castillo Nava","dep":"Ventas","puesto":"Ejecutivo de Ventas","ubi":"CDMX","estatus":"Medio tiempo"},
+    {"id":"E011","nombre":"Karla","apellido":"Mendoza Ortiz","dep":"TI","puesto":"Analista QA","ubi":"CDMX","estatus":"Tiempo completo"},
+    {"id":"E012","nombre":"Luis","apellido":"Vargas Pena","dep":"Finanzas","puesto":"Contador","ubi":"Monterrey","estatus":"Tiempo completo"}
+  ],
+  "supervisor": {"id":"E001","subordinados":["E002","E003","E004"]},
+  "tiposPermiso": ["Vacaciones","Permiso personal"],
+  "derechos": {"Vacaciones": 12, "Permiso personal": 5},
+  "vacante": {"nombre":"Analista QA Jr.","puesto":"Analista QA","gerente":"E001","candidatos":[
+    {"nombre":"Mariana","apellido":"Ponce Leon","email":"mariana.ponce@example.test"},
+    {"nombre":"Nicolas","apellido":"Rojas Duran","email":"nicolas.rojas@example.test"}
+  ]}
+}

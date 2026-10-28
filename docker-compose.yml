@@ -1,0 +1,53 @@
+name: orangehrm-lab
+services:
+  db_v1:
+    image: mariadb:10.11
+    restart: unless-stopped
+    environment:
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+    volumes: [db_v1_data:/var/lib/mysql]
+    networks: [ohrm_net]
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+  ohrm_v1:
+    image: orangehrm/orangehrm:5.8.1
+    restart: unless-stopped
+    depends_on:
+      db_v1: {condition: service_healthy}
+    ports: ["8081:80"]
+    volumes: [ohrm_v1_confs:/var/www/html/lib/confs]
+    networks: [ohrm_net]
+  db_v2:
+    image: mariadb:10.11
+    restart: unless-stopped
+    environment:
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+    volumes: [db_v2_data:/var/lib/mysql]
+    networks: [ohrm_net]
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+  ohrm_v2:
+    image: orangehrm/orangehrm:5.9
+    restart: unless-stopped
+    depends_on:
+      db_v2: {condition: service_healthy}
+    ports: ["8082:80"]
+    volumes:
+      - ohrm_v2_confs:/var/www/html/lib/confs
+      - ./config/security-headers.conf:/etc/apache2/conf-enabled/zz-security-headers.conf:ro   # CR-001
+      - ./config/headers.load:/etc/apache2/mods-enabled/headers.load:ro                         # CR-001 (habilita mod_headers)
+    networks: [ohrm_net]
+volumes:
+  db_v1_data:
+  db_v2_data:
+  ohrm_v1_confs:
+  ohrm_v2_confs:
+networks:
+  ohrm_net:
+

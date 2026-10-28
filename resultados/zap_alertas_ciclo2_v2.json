@@ -1,0 +1,98 @@
+[
+  {
+    "id": "10003",
+    "nombre": "Vulnerable JS Library",
+    "riesgo": "High (Medium)",
+    "instancias": "1"
+  },
+  {
+    "id": "10038",
+    "nombre": "Content Security Policy (CSP) Header Not Set",
+    "riesgo": "Medium (High)",
+    "instancias": "4"
+  },
+  {
+    "id": "10020",
+    "nombre": "Missing Anti-clickjacking Header",
+    "riesgo": "Medium (Medium)",
+    "instancias": "3"
+  },
+  {
+    "id": "10044",
+    "nombre": "Big Redirect Detected (Potential Sensitive Information Leak)",
+    "riesgo": "Low (Medium)",
+    "instancias": "3"
+  },
+  {
+    "id": "90004",
+    "nombre": "Cross-Origin-Embedder-Policy Header Missing or Invalid",
+    "riesgo": "Low (Medium)",
+    "instancias": "3"
+  },
+  {
+    "id": "90004",
+    "nombre": "Cross-Origin-Opener-Policy Header Missing or Invalid",
+    "riesgo": "Low (Medium)",
+    "instancias": "3"
+  },
+  {
+    "id": "90004",
+    "nombre": "Cross-Origin-Resource-Policy Header Missing or Invalid",
+    "riesgo": "Low (Medium)",
+    "instancias": "5"
+  },
+  {
+    "id": "10009",
+    "nombre": "In Page Banner Information Leak",
+    "riesgo": "Low (High)",
+    "instancias": "2"
+  },
+  {
+    "id": "10063",
+    "nombre": "Permissions Policy Header Not Set",
+    "riesgo": "Low (Medium)",
+    "instancias": "5"
+  },
+  {
+    "id": "10037",
+    "nombre": "Server Leaks Information via \"X-Powered-By\" HTTP Response Header Field(s)",
+    "riesgo": "Low (Medium)",
+    "instancias": "5"
+  },
+  {
+    "id": "10036",
+    "nombre": "Server Leaks Version Information via \"Server\" HTTP Response Header Field",
+    "riesgo": "Low (High)",
+    "instancias": "5"
+  },
+  {
+    "id": "10021",
+    "nombre": "X-Content-Type-Options Header Missing",
+    "riesgo": "Low (Medium)",
+    "instancias": "5"
+  },
+  {
+    "id": "10109",
+    "nombre": "Modern Web Application",
+    "riesgo": "Informational (Medium)",
+    "instancias": "3"
+  },
+  {
+    "id": "10049",
+    "nombre": "Non-Storable Content",
+    "riesgo": "Informational (Medium)",
+    "instancias": "5"
+  },
+  {
+    "id": "10112",
+    "nombre": "Session Management Response Identified",
+    "riesgo": "Informational (Medium)",
+    "instancias": "5"
+  },
+  {
+    "id": "10049",
+    "nombre": "Storable and Cacheable Content",
+    "riesgo": "Informational (Medium)",
+    "instancias": "4"
+  }
+]

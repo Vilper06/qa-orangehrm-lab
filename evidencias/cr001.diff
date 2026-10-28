@@ -1,0 +1,55 @@
+﻿diff --git a/config/headers.load b/config/headers.load
+new file mode 100644
+index 0000000..dcc78fb
+--- /dev/null
++++ b/config/headers.load
+@@ -0,0 +1 @@
++LoadModule headers_module /usr/lib/apache2/modules/mod_headers.so
+diff --git a/config/security-headers.conf b/config/security-headers.conf
+new file mode 100644
+index 0000000..183fc91
+--- /dev/null
++++ b/config/security-headers.conf
+@@ -0,0 +1,21 @@
++# CR-001: Endurecer cabeceras HTTP de seguridad en la version candidata (v2)
++# Se carga despues de security.conf (prefijo zz-) para que ServerTokens/ServerSignature prevalezcan.
++ServerTokens Prod
++ServerSignature Off
++<IfModule mod_headers.c>
++    # ZAP 10021
++    Header set X-Content-Type-Options "nosniff"
++    # ZAP 10020 (anti-clickjacking)
++    Header always set X-Frame-Options "SAMEORIGIN"
++    # ZAP 10063
++    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), usb=()"
++    Header always set Referrer-Policy "strict-origin-when-cross-origin"
++    # ZAP 90004 (COOP / CORP). COEP no se activa: require-corp puede romper recursos incrustados.
++    Header always set Cross-Origin-Opener-Policy "same-origin"
++    Header always set Cross-Origin-Resource-Policy "same-origin"
++    # ZAP 10037 (fuga de version PHP)
++    Header always unset X-Powered-By
++    Header unset X-Powered-By
++    # No se define Content-Security-Policy restrictiva: romperia la interfaz de OrangeHRM (scripts/estilos en linea).
++</IfModule>
++
+diff --git a/docker-compose.yml b/docker-compose.yml
+index 282c4d9..ee41645 100644
+--- a/docker-compose.yml
++++ b/docker-compose.yml
+@@ -38,7 +38,10 @@ services:
+     depends_on:
+       db_v2: {condition: service_healthy}
+     ports: ["8082:80"]
+-    volumes: [ohrm_v2_confs:/var/www/html/lib/confs]
++    volumes:
++      - ohrm_v2_confs:/var/www/html/lib/confs
++      - ./config/security-headers.conf:/etc/apache2/conf-enabled/zz-security-headers.conf:ro   # CR-001
++      - ./config/headers.load:/etc/apache2/mods-enabled/headers.load:ro                         # CR-001 (habilita mod_headers)
+     networks: [ohrm_net]
+ volumes:
+   db_v1_data:
+@@ -47,3 +50,4 @@ volumes:
+   ohrm_v2_confs:
+ networks:
+   ohrm_net:
++
